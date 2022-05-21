@@ -5,8 +5,10 @@ class Circulo{
   color colorDeFondo;
   int velocidad;
   int direccion;
+  int tamanioMinimo;
   
   Circulo(int posX, int posY, int tamanio, color colorDeFondo){
+    this.tamanioMinimo = 10;
     this.posX = posX;
     this.posY = posY;
     this.tamanio = tamanio;
@@ -25,7 +27,9 @@ class Circulo{
   }
   
   void achicarte(){
-    this.tamanio--;
+    if(this.tamanio > this.tamanioMinimo){
+      this.tamanio--;      
+    }
   }
   
   void agrandarte(){

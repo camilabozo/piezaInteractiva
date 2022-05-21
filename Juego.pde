@@ -16,40 +16,26 @@ class Juego{
     this.circuloPrincipal.posicionarte(mouseX, mouseY);
     this.circuloPrincipal.dibujarte();
     
-    //for(var j = 0; j < 5; j++){
-    //  this.circulosSecundarios.get(1).moverte("ARRIBA");
-    //  this.circulosSecundarios.get(1).dibujarte();      
-    //}
     for(var i = 0; i < this.circulosSecundarios.size(); i++ ){
-      Circulo circulo = this.circulosSecundarios.get(i);
+      Circulo circulo = this.circulosSecundarios.get(1);
       circulo.dibujarte(); 
-      //circulo.moverte();
-      //for(var j = 0; j < 5; j++){
-      //  circulo.moverte("DERECHA");
-      //  circulo.dibujarte();        
-      //}
-      //for(var j = 0; j < 5; j++){
-      //  circulo.moverte("ARRIBA");
-      //  circulo.dibujarte();        
-      //}
-      //for(var j = 0; j < 5; j++){
-      //  circulo.moverte("IZQUIERDA");    
-      //  circulo.dibujarte();        
-      //}
-      //for(var j = 0; j < 5; j++){
-      //  circulo.moverte("ABAJO");   
-      //  circulo.dibujarte();        
-      //}
+         
+      if(distanciaEnXConCirculoPrincipal(circulo) < 200 && distanciaEnYConCirculoPrincipal(circulo) < 200){
+        this.circuloPrincipal.achicarte();
+        circulo.agrandarte();
+      }else{
+        this.circuloPrincipal.agrandarte();
+        circulo.achicarte();
+      }     
     }
   }
   
-  void consultarDistancia(){
-    for(var i = 0; i < this.circulosSecundarios.size(); i++){
-      int posXcirculoSecundario = circulo.get(i).posX;
-    }
-    
-    int distancia = this.circuloPrincipal.posX - circulo.posX;
-    println(diferencia); 
+  int distanciaEnXConCirculoPrincipal(Circulo circuloSecundario){    
+    return this.circuloPrincipal.posX - circuloSecundario.posX;
   }
   
+  int distanciaEnYConCirculoPrincipal(Circulo circuloSecundario){    
+      return this.circuloPrincipal.posY - circuloSecundario.posY;
+  }
+ 
 }
