@@ -6,9 +6,11 @@ class Circulo{
   int velocidad;
   int direccion;
   int tamanioMinimo;
+  int tamanioMaximo;
   
   Circulo(int posX, int posY, int tamanio, color colorDeFondo){
     this.tamanioMinimo = 10;
+    this.tamanioMaximo = 400;
     this.posX = posX;
     this.posY = posY;
     this.tamanio = tamanio;
@@ -33,7 +35,13 @@ class Circulo{
   }
   
   void agrandarte(){
-    this.tamanio++;
+    if(this.tamanio < this.tamanioMaximo){
+      this.tamanio++;
+    }
+  }
+  
+  color cambiarColor(color nuevoColor){
+    return this.colorDeFondo = nuevoColor;
   }
   
   //void moverte(){

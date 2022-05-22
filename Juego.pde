@@ -17,25 +17,31 @@ class Juego{
     this.circuloPrincipal.dibujarte();
     
     for(var i = 0; i < this.circulosSecundarios.size(); i++ ){
-      Circulo circulo = this.circulosSecundarios.get(1);
-      circulo.dibujarte(); 
-         
-      if(distanciaEnXConCirculoPrincipal(circulo) < 200 && distanciaEnYConCirculoPrincipal(circulo) < 200){
-        this.circuloPrincipal.achicarte();
-        circulo.agrandarte();
-      }else{
-        this.circuloPrincipal.agrandarte();
-        circulo.achicarte();
-      }     
-    }
+        Circulo circulo = this.circulosSecundarios.get(i);
+        circulo.dibujarte(); 
+        
+        if(calcularDistanciaConCirculoPrincipal(circulo) < 600){
+          circulo.agrandarte();
+          this.circuloPrincipal.achicarte();
+        }else{
+          this.circuloPrincipal.agrandarte();
+          circulo.achicarte();
+        }
+        
+        if(this.circuloPrincipal.tamanio == circulo.tamanio){
+          this.circuloPrincipal.tamanio = this.circuloPrincipal.tamanio;
+          circulo.tamanio = circulo.tamanio;
+          this.circuloPrincipal.cambiarColor(colorEquilibrado);
+          circulo.cambiarColor(colorEquilibrado);          
+        }else{
+          this.circuloPrincipal.cambiarColor(colorCirculoPrincipal);
+          circulo.cambiarColor(colorCirculoSecundario);       
+        }        
+     }
   }
   
-  int distanciaEnXConCirculoPrincipal(Circulo circuloSecundario){    
-    return this.circuloPrincipal.posX - circuloSecundario.posX;
+  int calcularDistanciaConCirculoPrincipal(Circulo circuloSecundario){
+    return round(dist(this.circuloPrincipal.posX, this.circuloPrincipal.posY, circuloSecundario.posX, circuloSecundario.posY));    
   }
   
-  int distanciaEnYConCirculoPrincipal(Circulo circuloSecundario){    
-      return this.circuloPrincipal.posY - circuloSecundario.posY;
-  }
- 
 }
