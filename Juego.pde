@@ -34,9 +34,9 @@ class Juego{
         
         if(tamanioEquilibradoConCirculoPrincipal(circulo)){
           this.gloria.play();
+          this.colorDeFondo = color(169, 182, 219);
           this.circuloPrincipal.cambiarColor(colorEquilibrado);
           circulo.cambiarColor(colorEquilibrado);
-          this.colorDeFondo = color(169, 182, 219);
         }else{
           this.gloria.stop();
           this.colorDeFondo = color(96, 114, 180);
