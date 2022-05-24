@@ -10,7 +10,7 @@ class Juego{
     this.circuloPrincipal = new Circulo(mouseX, mouseY, tamanioCirculoPrincipal, colorCirculoPrincipal);
     this.circulosSecundarios = new ArrayList<Circulo>();
     for(var i = 0; i < round(random(10, 50)); i++){
-      Circulo c = new Circulo(round(random(width/2, width)), round(random(0, height)), tamanioCirculoSecundario, colorCirculoSecundario);
+      Circulo c = new Circulo(round(random(width/2+200, width)), round(random(0, height)), tamanioCirculoSecundario, colorCirculoSecundario);
       this.circulosSecundarios.add(c);    
     }
   }
@@ -52,7 +52,7 @@ class Juego{
   }
   
   boolean tamanioEquilibradoConCirculoPrincipal(Circulo circuloSecundario){
-    return ((this.circuloPrincipal.tamanio > 150) && (this.circuloPrincipal.tamanio < 200)) && ((circuloSecundario.tamanio > 150) && (circuloSecundario.tamanio < 200));
+    return ((this.circuloPrincipal.tamanio > 150) && (this.circuloPrincipal.tamanio < 250)) && ((circuloSecundario.tamanio > 150) && (circuloSecundario.tamanio < 250));
   }
 
   
