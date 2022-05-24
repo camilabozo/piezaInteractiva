@@ -2,9 +2,11 @@ class Juego{
   SoundFile gloria;
   Circulo circuloPrincipal;
   ArrayList<Circulo> circulosSecundarios;
+  color colorDeFondo;
   
   Juego(PApplet pApplet){
     this.gloria = new SoundFile(pApplet, "gloria.mp3");
+    this.colorDeFondo = color(96, 114, 180);
     this.circuloPrincipal = new Circulo(mouseX, mouseY, tamanioCirculoPrincipal, colorCirculoPrincipal);
     this.circulosSecundarios = new ArrayList<Circulo>();
     for(var i = 0; i < round(random(10, 50)); i++){
@@ -14,6 +16,7 @@ class Juego{
   }
   
   void dibujarte(){
+    background(this.colorDeFondo);
     this.circuloPrincipal.posicionarte(mouseX, mouseY);
     this.circuloPrincipal.dibujarte();
     
@@ -49,5 +52,6 @@ class Juego{
   boolean tamanioEquilibradoConCirculoPrincipal(Circulo circuloSecundario){
     return ((this.circuloPrincipal.tamanio > 150) && (this.circuloPrincipal.tamanio < 200)) && ((circuloSecundario.tamanio > 150) && (circuloSecundario.tamanio < 200));
   }
+
   
 }
